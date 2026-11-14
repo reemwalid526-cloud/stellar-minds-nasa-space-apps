@@ -1,127 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Stellar Remains Museum — The Moon Museum</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Montserrat:wght@300;400;500;600&family=Orbitron:wght@600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8"/>
+    <meta charset="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Stellar Remains Museum - The Moon Museum</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Montserrat:wght@300;400;500;600;&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <main class="mars-stage">
-    <!-- خلفية متحف القمر النظيفة -->
-    <img src="moon-bg.jpg" alt="The Moon Museum" class="bg-image" />
-    <div class="bg-overlay"></div>
+    <main class="mars-stage">
 
-    <!-- الهيدر العلوي -->
-    <header class="mars-header">
-      <div class="header-left">
-        <a href="index.html" class="brand-badge">
-          <img src="badge.jpg" alt="Team Emblem" onerror="this.style.display='none'" />
-        </a>
-        <span class="header-divider"></span>
-        <div class="museum-heading">
-          <h1 class="main-title">LOST BUT NOT FORGOTTEN</h1>
-          <h2 class="sub-title">THE MOON MUSEUM</h2>
-          <div class="title-underline"></div>
-          <p class="tagline">Let's explore the lunar world</p>
-        </div>
-      </div>
+        <img src="moon-bg.jpg" alt="The Moon Museum" class="bg-image"/>
+        <div class="bg-overlay"></div>
 
-      <nav class="nav-links">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="about.html" class="nav-link">About</a>
-        <a href="journey.html" class="nav-link active">Explore</a>
-        <a href="#team" class="nav-link">Team</a>
-      </nav>
-    </header>
-
-    <!-- ==========================================
-         اللوحة السفلية المفصلة (تظهر عند الضغط على أي آلة)
-         ========================================== -->
-    <div class="detailed-plaque-overlay" id="detailedPlaque" hidden>
-      <div class="detailed-plaque-content">
-        <button type="button" class="close-plaque" id="closePlaque">&times;</button>
-        
-        <div class="detailed-grid">
-          <!-- 1. صورة الآلة واسمها -->
-          <div class="detailed-item active">
-            <img src="apollo11_small.jpg" alt="Artifact Preview" class="small-rover-img" id="plaqueImg" />
-            <div class="detailed-text">
-              <span class="rover-name-detailed" id="plaqueName">Apollo 11 lunar module</span>
-              <span class="rover-type-detailed" id="plaqueType">Descent Stage</span>
+        <header class="mars-header">
+            <div class="header-left">
+                <a href="index.html" class="brand-badge">
+                    <img src="badge.jpg" alt="Team Emblem" onerror="this.style.display='none'"/>
+                </a>
+                <span class="header-divider"></span>
+                <div class="museum-heading">
+                    <h1 class="main-title">LOST BUT NOT FORGOTTEN</h1>
+                    <h2 class="sub-title">THE MOON MUSEUM</h2>
+                    <div class="title-underline"></div>
+                    <p class="tagline">Let's explore the luner world</p>
+                </div>
             </div>
-          </div>
 
-          <!-- 2. زر القصة (Story) -->
-          <a href="#" class="detailed-item detailed-btn" id="btnStory">
-            <span class="item-title">Story</span>
-            <span class="circle-arrow-small">&rarr;</span>
-          </a>
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="journey.html" class="nav-link">Explore</a>
+                <a href="#team" class="nav-link">Team</a>
+                </nav>
+            </header>
 
-          <!-- 3. زر الفيديوهات (Videos) -->
-          <a href="#" class="detailed-item detailed-btn" id="btnVideos">
-            <span class="item-title">Videos</span>
-            <span class="circle-arrow-small">&rarr;</span>
-          </a>
+                <div class="detailed-plaque-overlay" id="detailedPlaque" hidden>
+                    <div class="detailed-plaque-content">
+                        <button type="button" class="close-plaque" id="closePlaque">&times;</button>
 
-          <!-- 4. زر النموذج ثلاثي الأبعاد (3D module) -->
-          <a href="#" class="detailed-item detailed-btn" id="btn3D">
-            <span class="item-title">3D module</span>
-            <span class="circle-arrow-small">&rarr;</span>
-          </a>
+                        <div class="detailed-grid">
+                            <div class="detailed-item-active">
+                                <img src="apollo11_small.jpg" alt="artifact Preview" class="small-rover-img" id="plaqueImg"/>
+                                <div class="detailed-text">
+                                    <span class="rover-name-detailed" id="plaqueName">Apollo 11 luner module</span>
+                                    <span class="rover-type-detailed" id="plaqueType">Descent Stage</span>
+                                </div>
+                            </div>
 
-          <!-- 5. زر المعلومات (Information) -->
-          <a href="#" class="detailed-item detailed-btn" id="btnInfo">
-            <span class="item-title">Information</span>
-            <span class="circle-arrow-small">&rarr;</span>
-          </a>
-        </div>
-      </div>
-    </div>
+                            <a href="#" class="detailed-item detailed-btn" id="btnStory">
+                                <span class="item-title">Story</span>
+                                <span class="circle-arrow-small">&rarr;</span>
+                            </a>
 
-    <!-- الصناديق الثلاثة لمعدات القمر -->
-    <!-- 1. Apollo 11 lunar module -->
-    <div class="plaque plaque-apollo11">
-      <div class="plaque-text">
-        <span class="rover-name">Apollo 11 lunar module</span>
-        <span class="rover-type">descent stage</span>
-      </div>
-      <a href="#" class="circle-arrow-btn" data-target="apollo11" aria-label="Explore Apollo 11">
-        &rarr;
-      </a>
-    </div>
+                            <a href="#" class="detailed-item detailed-btn" id="btnVideos">
+                                <span class="item-title">Videos</span>
+                                <span class="circle-arrow-small">&rarr;</span>
+                            </a>
 
-    <!-- 2. Lunar Roving Vehicle (LRV) -->
-    <div class="plaque plaque-lrv">
-      <div class="plaque-text">
-        <span class="rover-name">Lunar roving vehicle</span>
-        <span class="rover-type">(LRV)- Apollo 15</span>
-      </div>
-      <a href="#" class="circle-arrow-btn" data-target="lrv" aria-label="Explore LRV">
-        &rarr;
-      </a>
-    </div>
+                            <a href="#" class="detailed-item detailed-btn" id="btn3D">
+                                <span class="item-title">3D modules</span>
+                                <span class="circle-arrow-small">&rarr;</span>
+                            </a>
 
-    <!-- 3. Surveyor 3 -->
-    <div class="plaque plaque-surveyor">
-      <div class="plaque-text">
-        <span class="rover-name">Surveyor 3</span>
-        <span class="rover-type">Lander</span>
-      </div>
-      <a href="#" class="circle-arrow-btn" data-target="surveyor3" aria-label="Explore Surveyor 3">
-        &rarr;
-      </a>
-    </div>
+                            <a href="#" class="detailed-item detailed-btn" id="btnInfo">
+                                <span class="item-title">Information</span>
+                                <span class="circle-arrow-small">&rarr;</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
 
-    <!-- زر الانتقال الجانبي -->
-    <a href="moon2.html" class="side-next-btn" aria-label="Next Section">
-      &rarr;
-    </a>
-  </main>
+                <div class="plaque plaque-apollo11">
+                    <div class="plaque-text">
+                        <span class="rover-name">Apollo lunar module</span>
+                        <span class="rover-type">descent stage</span>
 
-  <script src="script.js"></script>
+                    </div>
+                    <a href="#" class="circle-arrow-btn" data-target="apollo11" aria-label="Explore Apollo 11">
+                        &rarr;
+                    </a>
+                </div>
+
+                <div class="plaque plaque-lrv">
+                    <div class="plaque-text">
+                        <span class="rover-name">Lunar roving vehicle</span>
+                        <span class="rover-type">(LRV)- Aplollo 15</span>
+                    </div>
+                    <a href="#" class="circle-arrow-btn" data-target="lrv" aria-label="Explore LRV">
+                        &rarr;
+                    </a>
+                </div>
+
+                <div class="plaque plaque-surveyor">
+                    <div class="plaque-text">
+                        <span class="rover-name">Surveyor 3</span>
+                        <span class="rover-type">Lander</span>
+                    </div>
+                    <a href="#" class="circle-arrow-btn" data-target="surveyor3" aria-label="Explore Surveyor 3">
+                        &rarr;
+                    </a>
+                </div>
+                <a href="moon2.html" class="side-next-btn" aria-label="Next Section">
+                    &rarr;
+                </a>
+
+    </main>
+    <script src="script.js"></script>
 </body>
 </html>
