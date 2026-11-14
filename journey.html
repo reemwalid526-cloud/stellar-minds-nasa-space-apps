@@ -3,9 +3,68 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Stellar Remains Museum - The Mars Museum</title>
+    <title>Stellar Remains Museum - Choose Your Journey</title>
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
     <link href="https://font.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Orbitron:wght@600;700&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="style.css"/>
 </head>
+<body>
+    <main class="journey-stage">
+        <img src="journey - bg.jpg" alt="Museum Interior Doors" class="bg-image"/>
+        <div class="bg-overlay"></div>
+
+        <header class="nav-bar">
+            <a href="index.html" class="brand">
+                <div class="brand-badge">
+                    <img scr="badge.jpg" alt="Team Emblem" onerror="this.style.display='none'"/>
+
+                </div>
+                <span class="brand-divider"></span>
+                <div class="brand-text">
+                    <span class="brand-title">Stellar Remains</span>
+                    <span class="brand-subtitle"> Museum</span>
+                </div>
+            </a>
+
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a hrfef="#about" class="nav-link">About</a>
+                <a href="#explore" class="nav-link active">Explore</a>
+                <a href="#team" class="nav-link">Team</a>
+            </nav>
+        </header>
+
+        <div class="upper-banner">
+            <h1 class="banner-title">WELCOME TO THE JOURNEY</h1>
+            <p class="banner-subtitle">Where exploration begins</p>
+        </div>
+
+        <div class="door-label door-moon">
+            <span class="planet-name">THE MOON</span>
+            <a href="#" class="door-click-btn" data-destination="moon">
+                <span>Click</span>
+                <span class="arrow">&rarr;</span>
+            </a>
+        </div>
+
+        <div class="door-label door-mars">
+            <span class="planet-name">MARS</span>
+            <a href="#" class="door-click-btn" data-destination="mars">
+                <span>Click</span>
+                <span class="arrow">&rarr;</span>
+            </a>
+        </div>
+
+        <div class="door-label door-space">
+            <span class="planet-name">OUTER SPACE</span>
+            <a href="#" class="door-click-btn" data-destination="space">
+                <span>Click</span>
+                <span class="arrow">&rarr;</span>
+            </a>
+        </div>
+    </main>
+    
+    <script src="script.js"></script>    
+</body>
+</html>
