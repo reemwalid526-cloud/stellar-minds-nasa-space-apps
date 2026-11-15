@@ -113,6 +113,59 @@ document.addEventListener('DOMContentLoaded', () =>{
         Operating Duration: Worked during the lunar landing stage of the Apollo 11 mission.<br>
         After the mission ended, it remained on the lunar surface and did not return to Earth.</p>
       `
+    },
+
+    "voyager1":{
+        name: "Voyager 1",
+      type: "Interstellar Spacecraft",
+      category: "OUTER SOLAR SYSTEM COLLECTION",
+      image: "voyager_small.jpg",
+      storyVideo: "videos/voyager1.mp4",
+      videos: [
+        { url: "https://www.youtube.com/watch?v=8Ddt8xnnGGA" },
+        { url: "https://www.jpl.nasa.gov/videos/voyager-1-launches/" },
+        {url:"https://www.jpl.nasa.gov/videos/voyager-reaches-interstellar-space/"},
+        {url:"https://svs.gsfc.nasa.gov/15120/"}
+      ],
+      model3d: "models/Voyager1.glb",
+      infoHtml: `
+        <h3>VOYAGER 1</h3>
+        <p><strong>First: Mission Information</strong><br>
+        Mission Type: Uncrewed interplanetary flyby mission.<br>
+        Mission Objective: To explore Jupiter and Saturn and study the outer Solar System and interstellar space.<br>
+        Destination: Jupiter, Saturn, and interstellar space.<br>
+        Country: United States of America.<br>
+        Mission Partners: NASA and NASA Jet Propulsion Laboratory (JPL).<br>
+        Mission Cost: Part of the Voyager program; a separate spacecraft cost is not specified here.<br>
+        Mission Outcome: Successful. Voyager 1 explored Jupiter and Saturn and entered interstellar space in August 2012.</p>
+
+        <p><strong>Second: Dates and Duration</strong><br>
+        Launch Date: September 5, 1977.<br>
+        Launch Site: Cape Canaveral Air Force Station, Florida, USA.<br>
+        Launch Vehicle: Titan IIIE-Centaur rocket.<br>
+        Arrival Date: March 5, 1979 (Jupiter encounter).<br>
+        Landing Date: Not applicable; it was a flyby spacecraft.<br>
+        Mission End Date: Ongoing; no final mission end date has been declared.<br>
+        Planned Mission Duration: Approximately 4 years for the original planetary exploration mission.<br>
+        Actual Mission Duration: More than 49 years as of November 2026.<br>
+        Final Status: Active; operating in interstellar space with limited scientific instruments.</p>
+
+        <p><strong>Third: Achievements</strong><br>
+        Scientific Instruments: Imaging Science System, Ultraviolet Spectrometer, Infrared Interferometer Spectrometer, Plasma Spectrometer, Magnetometer, Cosmic Ray System, Low-Energy Charged Particles Instrument, Plasma Wave System, and other scientific instruments.<br>
+        Major Achievements: Explored Jupiter and Saturn and provided important discoveries about their moons, rings, and magnetic fields.<br>
+        Landing Site: Not applicable.<br>
+        Records & Firsts: First human-made spacecraft to enter interstellar space.</p>
+
+        <p><strong>Fourth: Engineering Specifications</strong><br>
+        Mass: Approximately 721.9 kg at launch.<br>
+        Dimensions: Approximately 3.7 meters in height; the high-gain antenna is approximately 3.7 meters in diameter.<br>
+        Power Source: Three Radioisotope Thermoelectric Generators (RTGs).<br>
+        Communication System: High-gain antenna using the Deep Space Network (DSN).<br>
+        Propulsion System: Hydrazine thrusters for spacecraft orientation and trajectory adjustments.</p>
+
+        <p><strong>Fifth: Operational Information</strong><br>
+        Operational Lifetime: More than 49 years and still operating as of November 2026.</p>
+      `
     }
   };
 
