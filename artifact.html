@@ -54,8 +54,65 @@
                     <button type="button" class="tab-btn" data-tab="info">Information &amp; Docs</button>
                 </div>
 
-                <div class="artifact-content-box">
-                    
+                <div class="artifact-content-box"></div>
+
+                <div class="tab-panel active" id="panel-story">
+                    <div class="story-layout">
+                        <div class="story-image-wrapper">
+                            <img src="viking_small.jpg" alt="Artifact Image" id="storyImg" class="artifact-showcase-img"/>
+                        </div>
+
+                        <div class="story-text-wrapper">
+                            <h2 class="panel-heading">The Mission Story</h2>
+                            <p class="panel-paragraph" id="storyText">
+                                Loading mission story...
+                            </p>
+                        </div>
+                    </div>
                 </div>
+
+                <div class="tab-panel" id="panel-videos hidden">
+                    <h2 class="panel-heading">Mission Footage &amp;</h2>
+                    <div class="videos-grid">
+                        <div class="video-card">
+                            <h3 class="video-label">Our Custom Story Videos</h3>
+                            <div class="video-wrapper">
+                                <video controls id="customVideoPlayer" class="media-frame">
+                                    <source src="" type="video/mp4"/>
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+
+                        <div class="video-card">
+                            <h3 class="video-label">Official NASA Archive Video</h3>
+                            <div class="video-wrapper">
+                                <iframe id="nasaVideoFrame" class="media-frame" src="" title="NASA Video" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-panel" id="panel-model3d" hidden>
+                <h2 class="panel-heading">Interactive 3D Model</h2>
+                <div class="model-viewer-wrapper">
+                    <iframe id="model3dFrame" class="model-frame" src="" title="3D Spacecraft Model" frameborder="0" allow fullscreen></iframe>
+
+                </div>
+            </div>
+
+            <div class="tab-panel" id="panel-info" hidden>
+                <h2 class="panel-heading"> Technical Specifications &amp; Research Library</h2>
+                <div class="specs-table" id="spaceContainer">
+
+                </div>
+                <div class="docs-download-area" id="docsContainer">
+
+                </div>
+            </div> 
         </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
         
