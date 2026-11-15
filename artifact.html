@@ -62,15 +62,19 @@
                             <img src="viking_small.jpg" alt="Artifact Image" id="storyImg" class="artifact-showcase-img"/>
                         </div>
 
-                        <div class="story-text-wrapper">
-                            <h2 class="panel-heading">The Mission Story</h2>
-                            <p class="panel-paragraph" id="storyText">
-                                Loading mission story...
-                            </p>
+                        <div class="tab-panel" id="panel-story">
+                            <div class="story-video-layout">
+                                <h2 class="panel-heading">The Mission Story</h2>
+                                <div class="story-video-wrapper">
+                                    <video controls class="media-frame" id="storyVideoPlayer">
+                                        <source src="" type="video/mp4"/>
+                                        Your video does not support the video tag.
+                                    </video>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-
+                        
+                        
                 <div class="tab-panel" id="panel-videos hidden">
                     <h2 class="panel-heading">Mission Footage &amp;</h2>
                     <div class="videos-grid">
@@ -96,14 +100,14 @@
             <div class="tab-panel" id="panel-model3d" hidden>
                 <h2 class="panel-heading">Interactive 3D Model</h2>
                 <div class="model-viewer-wrapper">
-                    <iframe id="model3dFrame" class="model-frame" src="" title="3D Spacecraft Model" frameborder="0" allow fullscreen></iframe>
+                    <model-viewr id="model3dFrame" src="" alt="3D model" auto-rotate-controls></model-viewr>
 
                 </div>
             </div>
 
             <div class="tab-panel" id="panel-info" hidden>
-                <h2 class="panel-heading"> Technical Specifications &amp; Research Library</h2>
-                <div class="specs-table" id="spaceContainer">
+                <h2 class="panel-heading"> Technical Specifications &amp; Mission Details</h2>
+                <div class="info-text-container" id="infoTextContainer">
 
                 </div>
                 <div class="docs-download-area" id="docsContainer">
