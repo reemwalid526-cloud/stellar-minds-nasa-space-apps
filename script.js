@@ -64,4 +64,8 @@ document.addEventListener('DOMContentLoaded', () =>{
             type:"Crewed Lunar Lander",
             category:"THE MOON COLLECTION",
             image:"apollo_small.jpg",
-            storyVideo:""
+            storyVideo:"videos/apollo 11.mp4",
+
+            videos:[
+                {url:""}
+            ]

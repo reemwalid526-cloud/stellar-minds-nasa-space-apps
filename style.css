@@ -13,6 +13,32 @@ body, html{
     overflow-x:hidden;
 }
 
+.click-btn, .enter-btn, .door-btn{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    z-index:20;
+    padding:12px 30px;
+    background: rgba (15, 15, 30, 0.8);
+    border: 2px solid #70a1ff;
+    color:#ffffff;
+    font-family: 'Cinzel', serif;
+    font-size:1.1rem;
+    letter-spacing: 2px;
+    border-radius: 6px;
+    cursor:pointer;
+    backdrop-filter: blur(8px);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.click-btn:hover, .enter-btn:hover, .door-btn:hover{
+    background: #70a1ff;
+    color:#05050a;
+    transform:translate(-50%, -50%) scale(1.05);
+}
+
 .mars-stage, .about-stage, .artifact-stage{
     position:relative;
     width:100vw;
