@@ -227,3 +227,153 @@ body, html{
     background:#fff;
     color:#05050a;
 }
+
+.detailed-plaque-content{
+    position:relative;
+    width:100%;
+}
+
+.close-plaque{
+    position: absolute;
+    top: -10px;
+    right:-5px;
+    background:none;
+    border:none;
+    color:#fff;
+    font-size:1.5rem;
+    cursor:pointer;
+}
+
+.detailed-grid{
+    display:grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    gap: 15px;
+    align-items: center;
+}
+
+.detailed-item{
+    display:flex;
+    align-items: center;
+    gap:12px;
+    background:rgba(255, 255, 255, 0.08);
+    padding: 10px 15px;
+    border-radius:6px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    text-decoration:none;
+    color:#fff;
+    transition: background 0.3 ease;
+}
+
+.detailed-btn:hover{
+    background: rgba(255, 255, 255, 0.2);
+
+}
+
+.small-rover-img{
+    width: 45px;
+    height:45px;
+    border-radius: 4px;
+    object-fit:cover;
+}
+
+.detailed-text{
+    display:flex;
+    flex-direction: column;
+}
+
+.rover-name-detailed{
+    font-size: 0.85rem;
+    font-weight: 600;
+    font-family: 'Cinzel', serif;
+}
+
+.rover-type-detailed{
+    font-size:0.7rem;
+    color:#a4b0be;
+}
+
+.item-title{
+    font-size:0.9rem;
+    font-weight:500;
+}
+
+.circle-arrow-small{
+    margin-left:auto;
+    width:28px;
+    height:28px;
+    border-radius:50%;
+    border: 1px solid rgba(255, 255, 255,0.5);
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    font-size:0.8rem;
+}
+
+.about-container{
+    position:relative;
+    z-index:5;
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    width:85%;
+    max-width:1200px;
+    gap:50px;
+}
+
+.about-huge-title{
+    font-family: 'Cinzel', serif;
+    font-size:6rem;
+    font-weight: 700;
+    letter-spacing:5px;
+    color:#ffffff;
+    text-shadow: 0 0 20px rgba(112, 161, 255, 0.4);
+}
+
+.about-right-box{
+    background: rgba(15, 15, 30, 0.6);
+    border:1px solid rgab(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding:40px;
+    backdrop-filter:blur(10px);
+    max-width:650px;
+    max-height:70vh;
+    overflow-y:auto;
+}
+
+.about-paragraph{
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color:#dcdde1;
+}
+
+.team-body .info-panel{
+    position: absolute;
+    background: rgba(20, 20, 40, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    padding: 15px 20px;
+    border-radius: 8px;
+    backdrop-filter: blur(8px);
+    z-index:5;
+    width:220px;
+}
+
+.noura-panel{top:20%; left:10%;}
+.menna-panel{top:12%; left:40%;}
+.shrouq-panel{top:30%; left:10%;}
+.reem-panel{bottom:20%; left:10%;}
+.lujain-panel{bottom:18%; left: 10%;}
+
+.member-name{
+    font-family: 'Cinzel', serif;
+    font-size: 1.1rem;
+    font-weight:600;
+    color:#70a1ff;
+    margin-bottom: 5px;
+}
+
+.member-role{
+    font-size: 0.75rem;
+    color:#dcdde1;
+    line-height:1.4;
+}
+
