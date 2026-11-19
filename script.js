@@ -1,320 +1,154 @@
-document.addEventListener('DOMContentLoaded', () =>{
-    const artifactsData ={
-        "viking":{
-            name:"Viking 1 Lander",
-            type:"Mars Lander",
-            category:"MARS COLLECTION",
-            image: "Viking_small.jpg",
-            storyVideo:"videos/viking-story.mp4",
+document.addEventListener('DOMContentLoaded', () => {
 
-            video:[
-                {url:"https://www.nasa.gov/resource/viking-mission-to-mars-animation-and-footage/"},
-                {url:"https://images.nasa.gov/details/ksc_080805_mro_smrekar9"},
-                {url:"https://www.jpl.nasa.gov/videos/viking-1-first-spacecraft-on-mars/"},
-                {url:"https://www.youtube.com/watch?v=50-QVbaIdbM"},
-                {url:"https://science.nasa.gov/resource/viking-mars-trailblazer/"},
-                {ur:"https://www.jpl.nasa.gov/videos/viking-legacy-and-mars-exploration-7-min/"}
-            ],
+  /* ---------- artifact data ---------- */
+  // add(id, name, type, category, videos[{title,url}], infoHtml)
+  // Images:  <id>-small.jpg   Story video: videos/<id>.mp4   3D model: models/<id>.glb
+  const artifactsData = {};
+  function add(id, name, type, category, videos = [], infoHtml = '') {
+    artifactsData[id] = {
+      name, type, category, videos,
+      image: `${id}-small.jpg`,
+      storyVideo: `videos/${id}.mp4`,
+      model3d: `models/${id}.glb`,
+      infoHtml: infoHtml || `<h3>${name.toUpperCase()}</h3><p>Detailed information is coming soon.</p>`
+    };
+  }
 
-            model3d:"models/Viking Lander.glb",
+  const MARS = 'MARS COLLECTION', MOON = 'THE MOON COLLECTION', SPACE = 'OUTER SPACE COLLECTION';
 
-            infoHtml:`
-            <h3>VIKING 1</h3>
-            <p><strong>Frist:Mission Information</strong><br>
-            Mission Type: Orbiter and Lander.<br>
-            Mission Objective: To study Mars from orbit and its surface, atmosphere, climate, and search for signs of life.<br>
-            Destination: Mars – Chryse Planitia.<br>
-            Country: United States of America.<br>
-            Mission Partners: NASA, Jet Propulsion Laboratory (JPL), and Langley Research Center.<br>
-            Mission Cost: The individual cost of Viking 1 is not separately specified; it was part of the Viking program.<br>
-            Mission Outcome: Successful. It became the first NASA spacecraft to successfully land and operate on Mars.</p>
+  add('viking', 'Viking 1 Lander', 'Mars Lander', MARS, [
+    { title: 'Viking mission to Mars', url: 'https://www.nasa.gov/resource/viking-mission-to-mars-animation-and-footage/' },
+    { title: 'Viking 1: first spacecraft on Mars', url: 'https://www.jpl.nasa.gov/videos/viking-1-first-spacecraft-on-mars/' },
+    { title: 'Viking trailblazer', url: 'https://science.nasa.gov/resource/viking-mars-trailblazer/' },
+    { title: 'Viking legacy and Mars exploration', url: 'https://www.jpl.nasa.gov/videos/viking-legacy-and-mars-exploration-7-min/' },
+    { title: 'Viking on YouTube', url: 'https://www.youtube.com/watch?v=50-QVbaIdbM' }
+  ], /* PASTE your original Viking infoHtml (the `...` block) here, or leave empty */ '');
 
-            <p><strong>Second: Dates and Duration</strong><br>
-            Launch Date: August 20, 1975.<br>
-            Launch Site: Cape Canaveral, Florida, USA.<br>
-            Launch Vehicle: Titan IIIE-Centaur.<br>
-            Arrival Date: June 19, 1976.<br>
-            Landing Date: July 20, 1976.<br>
-            Mission End Date: November 11, 1982 (Lander).<br>
-            Planned Mission Duration: 90 days after landing.<br>
-            Actual Mission Duration: More than 6 years on the Martian surface.<br>
-            Final Status: Mission completed; communication ended after a faulty command.</p>
+  add('pathfinder', 'Mars Pathfinder Lander', 'Mars Lander', MARS);
+  add('sojourner', 'Sojourner', 'Mars Rover', MARS);
+  add('spirit', 'Spirit', 'Mars Rover', MARS);
+  add('opportunity', 'Opportunity', 'Mars Rover', MARS);
+  add('insight', 'InSight', 'Mars Lander', MARS);
+  add('ingenuity', 'Ingenuity', 'Mars Helicopter', MARS);
 
-            <p><strong>Third: Achievements</strong><br>
-            Scientific Instruments: Cameras, Gas Chromatograph Mass Spectrometer, Seismometer, X-ray Fluorescence Spectrometer, Biological Laboratory, and Weather Instrument Package.<br>
-            Major Achievements: Successfully landed on Mars, collected and analyzed Martian soil samples, and returned thousands of images.<br>
-            Landing Site: Chryse Planitia, Mars.<br>
-            Records & Firsts: First successful NASA landing on Mars and first NASA mission to conduct biological experiments on Martian soil.</p>
+  add('apollo11', 'Apollo 11 Lunar Module', 'Crewed Lunar Lander', MOON, [
+    { title: 'Apollo 11 videos', url: 'https://www.nasa.gov/specials/apollo50th/videos.html' },
+    { title: 'Apollo 11 video archive', url: 'https://www.nasa.gov/wp-content/uploads/static/history/alsj/a11/video11.html' },
+    { title: 'Apollo 11 mission page', url: 'https://www.nasa.gov/mission/apollo-11/' },
+    { title: 'Restored moonwalk video', url: 'https://www.nasa.gov/missions/apollo/apollo-11/nasa-releases-restored-apollo-11-moonwalk-video/' }
+  ], /* PASTE your original Apollo 11 infoHtml here, or leave empty */ '');
+  add('lrv', 'Lunar Roving Vehicle (Apollo 15)', 'Lunar Rover', MOON);
+  add('surveyor3', 'Surveyor 3', 'Lunar Lander', MOON);
+  add('apollo12pse', 'Apollo 12 Passive Seismic Experiment (PSE)', 'Experiment', MOON);
+  add('lunarprospector', 'Lunar Prospector', 'Orbiter', MOON);
+  add('lcross', 'LCROSS Shepherding Spacecraft', 'Spacecraft', MOON);
 
-            <p><strong>Fourth: Engineering Specifications</strong><br>
-            Mass: Orbiter: approximately 2,339 kg; Lander: approximately 600 kg at landing.<br>
-            Dimensions: Orbiter: approximately 9.7 m in diameter with solar panels extended; Lander: approximately 3.02 m wide and 2.13 m high.<br>
-            Power Source: Orbiter used solar panels and batteries; Lander used two Radioisotope Thermoelectric Generators (RTGs).<br>
-            Communication System: S-band radio communication with high-gain and low-gain antennas.<br>
-            Propulsion System: Orbiter used a liquid-fuel bipropellant engine; Lander used a hydrazine monopropellant system.</p>
+  add('pioneer10', 'Pioneer 10', 'Space Probe', SPACE);
+  add('voyager1', 'Voyager 1', 'Interstellar Spacecraft', SPACE, [
+    { title: 'Voyager 1 launches', url: 'https://www.jpl.nasa.gov/videos/voyager-1-launches/' },
+    { title: 'Voyager reaches interstellar space', url: 'https://www.jpl.nasa.gov/videos/voyager-reaches-interstellar-space/' },
+    { title: 'Voyager animation', url: 'https://svs.gsfc.nasa.gov/15120/' },
+    { title: 'Voyager on YouTube', url: 'https://www.youtube.com/watch?v=8Ddt8xnnGGA' }
+  ], /* PASTE your original Voyager 1 infoHtml here, or leave empty */ '');
+  add('voyager2', 'Voyager 2', 'Space Probe', SPACE);
+  add('kepler', 'Kepler Space Telescope', 'Space Observatory', SPACE);
+  add('spitzer', 'Spitzer Space Telescope', 'Space Observatory', SPACE);
+  add('dawn', 'Dawn', 'Spacecraft', SPACE);
 
-            <p><strong>Fifth: Operational Information</strong><br>
-            Operational Lifetime: The lander operated for more than 6 years, from July 20, 1976, until November 11, 1982. The orbiter operated until August 7, 1980.</p>
-        `
-
-    },
-
-        "apollo11":{ 
-            name:"Apollo 11 Lunar Module",
-            type:"Crewed Lunar Lander",
-            category:"THE MOON COLLECTION",
-            image:"apollo_small.jpg",
-            storyVideo:"videos/apollo 11.mp4",
-
-            videos:[
-                {url:"https://www.nasa.gov/specials/apollo50th/videos-download.html"},
-                {url:"https://www.nasa.gov/specials/apollo50th/videos.html"},
-                {url:"https://www.nasa.gov/wp-content/uploads/static/history/alsj/a11/video11.html"},
-                {url:"https://www.nasa.gov/mission/apollo-11/"},
-                {url:"https://www.nasa.gov/missions/apollo/apollo-11/nasa-releases-restored-apollo-11-moonwalk-video/"}
-            ],
-            model3d: "models/Apollo 11.obj",
-      infoHtml: `
-        <h3>APOLLO 11 LUNAR MODULE – DESCENT STAGE</h3>
-        <p><strong>First: Mission Information</strong><br>
-        Mission Type: A crewed lunar landing system.<br>
-        Purpose: To carry astronauts to the Moon's surface and provide the landing stage of the Lunar Module.<br>
-        Destination: The lunar surface, in the Sea of Tranquility.<br>
-        Country: United States.<br>
-        Organizations: NASA and companies working with NASA.<br>
-        Cost: There is no separate announced cost for the descent stage alone.<br>
-        Result: The mission successfully landed on the Moon. The descent stage remained on the lunar surface after the ascent stage took off.</p>
-
-        <p><strong>Second: Dates and Duration</strong><br>
-        Launch Date: July 16, 1969.<br>
-        Launch Location: Kennedy Space Center, Florida.<br>
-        Launch Vehicle: Saturn V.<br>
-        Lunar Arrival and Landing Date: July 20, 1969.<br>
-        Mission End Date: July 24, 1969.<br>
-        Total Mission Duration: About 8 days.<br>
-        Final Status: The mission ended successfully, and the descent stage remained on the Moon.</p>
-
-        <p><strong>Third: Achievements</strong><br>
-        Helped achieve the first successful human landing on the Moon.<br>
-        Provided a landing platform and storage space for equipment.<br>
-        Carried the ladder that astronauts used to climb down to the lunar surface.<br>
-        Was left on the Moon after the ascent stage separated from it.</p>
-
-        <p><strong>Fourth: Engineering Specifications</strong><br>
-        Dry Mass: About 2,033 kg.<br>
-        Shape: An eight-sided structure.<br>
-        Height: About 3.23 meters.<br>
-        Diameter: About 4.22 meters.<br>
-        Power System: Silver-zinc batteries.<br>
-        Propulsion System: A liquid-fuel rocket engine used for landing.<br>
-        Communication: Used the communication systems of the Lunar Module.</p>
-
-        <p><strong>Fifth: Operational Information</strong><br>
-        Operating Duration: Worked during the lunar landing stage of the Apollo 11 mission.<br>
-        After the mission ended, it remained on the lunar surface and did not return to Earth.</p>
-      `
-    },
-
-    "voyager1":{
-        name: "Voyager 1",
-      type: "Interstellar Spacecraft",
-      category: "OUTER SOLAR SYSTEM COLLECTION",
-      image: "voyager_small.jpg",
-      storyVideo: "videos/voyager1.mp4",
-      videos: [
-        { url: "https://www.youtube.com/watch?v=8Ddt8xnnGGA" },
-        { url: "https://www.jpl.nasa.gov/videos/voyager-1-launches/" },
-        {url:"https://www.jpl.nasa.gov/videos/voyager-reaches-interstellar-space/"},
-        {url:"https://svs.gsfc.nasa.gov/15120/"}
-      ],
-      model3d: "models/Voyager1.glb",
-      infoHtml: `
-        <h3>VOYAGER 1</h3>
-        <p><strong>First: Mission Information</strong><br>
-        Mission Type: Uncrewed interplanetary flyby mission.<br>
-        Mission Objective: To explore Jupiter and Saturn and study the outer Solar System and interstellar space.<br>
-        Destination: Jupiter, Saturn, and interstellar space.<br>
-        Country: United States of America.<br>
-        Mission Partners: NASA and NASA Jet Propulsion Laboratory (JPL).<br>
-        Mission Cost: Part of the Voyager program; a separate spacecraft cost is not specified here.<br>
-        Mission Outcome: Successful. Voyager 1 explored Jupiter and Saturn and entered interstellar space in August 2012.</p>
-
-        <p><strong>Second: Dates and Duration</strong><br>
-        Launch Date: September 5, 1977.<br>
-        Launch Site: Cape Canaveral Air Force Station, Florida, USA.<br>
-        Launch Vehicle: Titan IIIE-Centaur rocket.<br>
-        Arrival Date: March 5, 1979 (Jupiter encounter).<br>
-        Landing Date: Not applicable; it was a flyby spacecraft.<br>
-        Mission End Date: Ongoing; no final mission end date has been declared.<br>
-        Planned Mission Duration: Approximately 4 years for the original planetary exploration mission.<br>
-        Actual Mission Duration: More than 49 years as of November 2026.<br>
-        Final Status: Active; operating in interstellar space with limited scientific instruments.</p>
-
-        <p><strong>Third: Achievements</strong><br>
-        Scientific Instruments: Imaging Science System, Ultraviolet Spectrometer, Infrared Interferometer Spectrometer, Plasma Spectrometer, Magnetometer, Cosmic Ray System, Low-Energy Charged Particles Instrument, Plasma Wave System, and other scientific instruments.<br>
-        Major Achievements: Explored Jupiter and Saturn and provided important discoveries about their moons, rings, and magnetic fields.<br>
-        Landing Site: Not applicable.<br>
-        Records & Firsts: First human-made spacecraft to enter interstellar space.</p>
-
-        <p><strong>Fourth: Engineering Specifications</strong><br>
-        Mass: Approximately 721.9 kg at launch.<br>
-        Dimensions: Approximately 3.7 meters in height; the high-gain antenna is approximately 3.7 meters in diameter.<br>
-        Power Source: Three Radioisotope Thermoelectric Generators (RTGs).<br>
-        Communication System: High-gain antenna using the Deep Space Network (DSN).<br>
-        Propulsion System: Hydrazine thrusters for spacecraft orientation and trajectory adjustments.</p>
-
-        <p><strong>Fifth: Operational Information</strong><br>
-        Operational Lifetime: More than 49 years and still operating as of November 2026.</p>
-      `
-    }
-  };
-
-
-
-
-
-
-
-
-
-
-  const arrowButtons = document.querySelectorAll('.circle-arrow-btn');
+  /* ---------- museum halls: popup ---------- */
   const detailedPlaque = document.getElementById('detailedPlaque');
   const closePlaqueBtn = document.getElementById('closePlaque');
 
-  if (arrowButtons && detailedPlaque) {
-    arrowButtons.forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        const targetId = btn.getAttribute('data-target');
-        const artifact = artifactsData[targetId];
-
-        if (artifact) {
-          document.getElementById('plaqueImg').src = artifact.image;
-          document.getElementById('plaqueName').textContent = artifact.name;
-          document.getElementById('plaqueType').textContent = artifact.type;
-
-          document.getElementById('btnStory').href = `artifact.html?id=${targetId}&tab=story`;
-          document.getElementById('btnVideos').href = `artifact.html?id=${targetId}&tab=videos`;
-          document.getElementById('btn3D').href = `artifact.html?id=${targetId}&tab=model3d`;
-          document.getElementById('btnInfo').href = `artifact.html?id=${targetId}&tab=info`;
-        }
-
-        detailedPlaque.removeAttribute('hidden');
-        detailedPlaque.style.display = 'block';
-      });
-    });
-  }
-
-  if (closePlaqueBtn && detailedPlaque) {
-    closePlaqueBtn.addEventListener('click', () => {
-      detailedPlaque.setAttribute('hidden', 'true');
-      detailedPlaque.style.display = 'none';
-    });
-  }
-
-  // إدارة صفحة تفاصيل الآلة (artifact.html)
-  const urlParams = new URLSearchParams(window.location.search);
-  const artifactId = urlParams.get('id');
-  const activeTab = urlParams.get('tab') || 'story';
-
-  if (artifactId && artifactsData[artifactId]) {
-    const data = artifactsData[artifactId];
-
-    document.getElementById('artifactTitle').textContent = data.name;
-    document.getElementById('artifactCategory').textContent = data.category;
-
-    // 1. فيديو القصة
-    const storyVideoPlayer = document.getElementById('storyVideoPlayer');
-    if (storyVideoPlayer && data.storyVideo) {
-      let sourceEl = storyVideoPlayer.querySelector('source');
-      if (!sourceEl) {
-        sourceEl = document.createElement('source');
-        sourceEl.type = 'video/mp4';
-        storyVideoPlayer.appendChild(sourceEl);
+  document.querySelectorAll('.circle-arrow-btn').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      if (!detailedPlaque) return;
+      const id = btn.dataset.target;
+      const a = artifactsData[id];
+      if (a) {
+        const img = document.getElementById('plaqueImg');
+        img.style.display = '';
+        img.src = a.image;
+        document.getElementById('plaqueName').textContent = a.name;
+        document.getElementById('plaqueType').textContent = a.type;
+        document.getElementById('btnStory').href = `artifact.html?id=${id}&tab=story`;
+        document.getElementById('btnVideos').href = `artifact.html?id=${id}&tab=videos`;
+        document.getElementById('btn3D').href = `artifact.html?id=${id}&tab=model3d`;
+        document.getElementById('btnInfo').href = `artifact.html?id=${id}&tab=info`;
       }
-      sourceEl.src = data.storyVideo;
-      storyVideoPlayer.load();
-    }
+      detailedPlaque.hidden = false;
+    });
+  });
+  if (closePlaqueBtn) closePlaqueBtn.addEventListener('click', () => { detailedPlaque.hidden = true; });
+  if (detailedPlaque) detailedPlaque.addEventListener('click', e => { if (e.target === detailedPlaque) detailedPlaque.hidden = true; });
 
-    // 2. فيديوهات الأرشيف
-    const videosContainer = document.getElementById('videosContainer');
-    if (videosContainer && data.videos) {
-      videosContainer.innerHTML = '';
-      data.videos.forEach(vid => {
-        const card = document.createElement('div');
-        card.className = 'video-card-item';
-        card.innerHTML = `
-          <h3>${vid.title}</h3>
-          <a href="${vid.url}" target="_blank" class="watch-link">Watch Official Video &rarr;</a>
-        `;
-        videosContainer.appendChild(card);
-      });
-    }
-
-    // 3. المجسم 3D
-    const modelViewer = document.getElementById('model3dFrame');
-    if (modelViewer && data.model3d) {
-      modelViewer.setAttribute('src', data.model3d);
-    }
-
-    // 4. نصوص المعلومات التفصيلية (Information)
-    const infoContainer = document.getElementById('infoTextContainer');
-    if (infoContainer && data.infoHtml) {
-      infoContainer.innerHTML = data.infoHtml;
-    }
+  /* ---------- home: search ---------- */
+  const searchForm = document.getElementById('searchForm');
+  if (searchForm) {
+    searchForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const q = document.getElementById('searchInput').value.trim().toLowerCase();
+      if (!q) return;
+      const hit = Object.entries(artifactsData).find(([, a]) => a.name.toLowerCase().includes(q));
+      if (hit) window.location.href = `artifact.html?id=${hit[0]}&tab=story`;
+      else alert('No artifact found. Try "Voyager", "Apollo" or "Viking".');
+    });
   }
 
-  // التبديل بين التبويبات (Tabs)
-  const tabButtons = document.querySelectorAll('.tab-btn');
-  const tabPanels = document.querySelectorAll('.tab-panel');
+  /* ---------- artifact page ---------- */
+  const params = new URLSearchParams(window.location.search);
+  const artifactId = params.get('id');
+  const tabAlias = { story: 'story', videos: 'videos', model3d: 'model3d', info: 'info' };
+  const activeTab = tabAlias[params.get('tab')] || 'story';
+  const data = artifactsData[artifactId];
 
-  if (tabButtons.length > 0) {
-    tabButtons.forEach(btn => {
-      const tabName = btn.getAttribute('data-tab');
-      if (tabName === activeTab) {
-        btn.classList.add('active');
-      } else {
-        btn.classList.remove('active');
+  if (document.getElementById('artifactTitle')) {
+    if (data) {
+      document.getElementById('artifactTitle').textContent = data.name;
+      document.getElementById('artifactCategory').textContent = data.category;
+      document.title = `Stellar Remains Museum - ${data.name}`;
+
+      const storyImg = document.getElementById('storyImg');
+      if (storyImg) storyImg.src = data.image;
+
+      const player = document.getElementById('storyVideoPlayer');
+      if (player) { player.querySelector('source').src = data.storyVideo; player.load(); }
+
+      const vc = document.getElementById('videosContainer');
+      if (vc) {
+        vc.innerHTML = data.videos.length
+          ? data.videos.map(v => `<div class="video-card-item"><h3>${v.title}</h3><a href="${v.url}" target="_blank" rel="noopener" class="watch-link">Watch video &rarr;</a></div>`).join('')
+          : '<p>No videos have been added for this artifact yet.</p>';
       }
-    });
 
-    tabPanels.forEach(panel => {
-      if (panel.id === `panel-${activeTab}`) {
-        panel.removeAttribute('hidden');
-        panel.style.display = 'block';
-      } else {
-        panel.setAttribute('hidden', 'true');
-        panel.style.display = 'none';
-      }
-    });
+      const mv = document.getElementById('model3dFrame');
+      if (mv) mv.setAttribute('src', data.model3d);
 
-    tabButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const targetTab = btn.getAttribute('data-tab');
+      const info = document.getElementById('infoTextContainer');
+      if (info) info.innerHTML = data.infoHtml;
+    }
 
-        tabButtons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabPanels = document.querySelectorAll('.tab-panel');
+    function showTab(name) {
+      tabButtons.forEach(b => b.classList.toggle('active', b.dataset.tab === name));
+      tabPanels.forEach(p => { p.hidden = p.id !== `panel-${name}`; });
+    }
+    tabButtons.forEach(b => b.addEventListener('click', () => showTab(b.dataset.tab)));
+    showTab(activeTab);
 
-        tabPanels.forEach(panel => {
-          if (panel.id === `panel-${targetTab}`) {
-            panel.removeAttribute('hidden');
-            panel.style.display = 'block';
-          } else {
-            panel.setAttribute('hidden', 'true');
-            panel.style.display = 'none';
-          }
-        });
-      });
-    });
+    const backBtn = document.getElementById('backToHallBtn');
+    if (backBtn) backBtn.addEventListener('click', () => window.history.back());
   }
 
-  // زر العودة للمتحف
-  const backBtn = document.getElementById('backToHallBtn');
-  if (backBtn) {
-    backBtn.addEventListener('click', () => {
-      window.history.back();
-    });
+  /* ---------- full-screen video page ---------- */
+  const fsPlayer = document.getElementById('artifactVideoPlayer');
+  if (fsPlayer) {
+    if (data) {
+      fsPlayer.querySelector('source').src = data.storyVideo;
+      fsPlayer.load();
+    }
+    const close = document.getElementById('videoCloseBtn');
+    if (close && artifactId) close.href = `artifact.html?id=${artifactId}&tab=story`;
   }
-
 });

@@ -2,121 +2,66 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8"/>
-    <meta charset="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Stellar Remains Museum - The Moon Museum</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Stellar Remains Museum - Artifact</title>
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Montserrat:wght@300;400;500;600;&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Montserrat:wght@300;400;500;600;700;800&family=Orbitron:wght@600;700&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
     <main class="artifact-stage">
-
         <img src="artifact-bg.jpg" alt="Cosmic Background" class="bg-image"/>
         <div class="bg-overlay-deep"></div>
-
         <header class="navbar">
             <a href="index.html" class="brand">
-                <div class="brand-badge">
-                    <img src="badge.jpg" alt="Team Emblem" onerror="this.style.display='none'"/>
-                </div>
+                <div class="brand-badge"><img src="badge.jpg" alt="Team Emblem" onerror="this.style.display='none'"/></div>
                 <span class="brand-divider"></span>
-                <div class="brand-text">
-                    <span class="brand-title">Stellar Remians</span>
-                    <span class="brand-title">Museum</span>
-                </div>
+                <div class="brand-text"><span class="brand-title">Stellar Remains</span><span class="brand-subtitle">Museum</span></div>
             </a>
-
             <nav class="nav-links">
                 <a href="index.html" class="nav-link">Home</a>
-                <a href="index.html" class="nav-link">Home</a>
                 <a href="about.html" class="nav-link">About</a>
-                <a href="journey.html" class="nav-link">Explore</a>
+                <a href="journey.html" class="nav-link active">Explore</a>
                 <a href="team.html" class="nav-link">Team</a>
             </nav>
         </header>
-
         <section class="artifact-container">
             <div class="artifact-top-bar">
-                <button type="button" class="back-hall-btn" id="backToHallBtn">
-                    &larr; Back to Museum backToHallBtn
-                    </button>
-                    <div class="artifact-header-info">
-                        <span class="artifact-category" id="artifactCategory"> MARS COLLECTION</span>
-                        <h1 class="artifact-main-title" id="artifactTitle">Viking 1 Lander</h1>
-                    </div>
-                </div>
-
-                <div class="artifact-tabs">
-                    <button type="button" class="tab-btn active" data-tab="Story">Story</button>
-                    <button type="button" class="tab-btn" data-tab="videos">Videos</button>
-                    <button type="button" class="tab-btn" data-tab="3D module"></button>
-                    <button type="button" class="tab-btn" data-tab="info">Information &amp; Docs</button>
-                </div>
-
-                <div class="artifact-content-box"></div>
-
-                <div class="tab-panel active" id="panel-story">
+                <button type="button" class="back-hall-btn" id="backToHallBtn">&larr; Back to Museum</button>
+                <div class="artifact-header-info"><span class="artifact-category" id="artifactCategory">MARS COLLECTION</span><h1 class="artifact-main-title" id="artifactTitle">Viking 1 Lander</h1></div>
+            </div>
+            <div class="artifact-tabs">
+                <button type="button" class="tab-btn active" data-tab="story">Story</button>
+                <button type="button" class="tab-btn" data-tab="videos">Videos</button>
+                <button type="button" class="tab-btn" data-tab="model3d">3D Model</button>
+                <button type="button" class="tab-btn" data-tab="info">Information &amp; Docs</button>
+            </div>
+            <div class="artifact-content-box">
+                <div class="tab-panel" id="panel-story">
                     <div class="story-layout">
-                        <div class="story-image-wrapper">
-                            <img src="viking_small.jpg" alt="Artifact Image" id="storyImg" class="artifact-showcase-img"/>
-                        </div>
-
-                        <div class="tab-panel" id="panel-story">
-                            <div class="story-video-layout">
-                                <h2 class="panel-heading">The Mission Story</h2>
-                                <div class="story-video-wrapper">
-                                    <video controls class="media-frame" id="storyVideoPlayer">
-                                        <source src="" type="video/mp4"/>
-                                        Your video does not support the video tag.
-                                    </video>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        
-                <div class="tab-panel" id="panel-videos hidden">
-                    <h2 class="panel-heading">Mission Footage &amp;</h2>
-                    <div class="videos-grid">
-                        <div class="video-card">
-                            <h3 class="video-label">Our Custom Story Videos</h3>
-                            <div class="video-wrapper">
-                                <video controls id="customVideoPlayer" class="media-frame">
-                                    <source src="" type="video/mp4"/>
-                                    Your browser does not support the video tag.
-                                </video>
-                            </div>
-                        </div>
-
-                        <div class="video-card">
-                            <h3 class="video-label">Official NASA Archive Video</h3>
-                            <div class="video-wrapper">
-                                <iframe id="nasaVideoFrame" class="media-frame" src="" title="NASA Video" frameborder="0" allowfullscreen></iframe>
-                            </div>
+                        <div class="story-image-wrapper"><img src="" alt="Artifact" id="storyImg" class="artifact-showcase-img" onerror="this.style.display='none'"/></div>
+                        <div class="story-video-layout"><h2 class="panel-heading">The Mission Story</h2>
+                        <div class="video-wrapper"><video controls class="media-frame" id="storyVideoPlayer"><source src="" type="video/mp4"/>Your browser does not support the video tag.</video></div></div>
                     </div>
                 </div>
-            </div>
-
-            <div class="tab-panel" id="panel-model3d" hidden>
-                <h2 class="panel-heading">Interactive 3D Model</h2>
-                <div class="model-viewer-wrapper">
-                    <model-viewr id="model3dFrame" src="" alt="3D model" auto-rotate-controls></model-viewr>
-
-                </div>
-            </div>
-
-            <div class="tab-panel" id="panel-info" hidden>
-                <h2 class="panel-heading"> Technical Specifications &amp; Mission Details</h2>
-                <div class="info-text-container" id="infoTextContainer">
-
-                </div>
-                <div class="docs-download-area" id="docsContainer">
-
-                </div>
-            </div> 
-        </section>
-    </main>
-    <script src="script.js"></script>
+                <div class="tab-panel" id="panel-videos" hidden>
+<h2 class="panel-heading">Mission Footage</h2>
+<div class="videos-grid" id="videosContainer"></div>
+</div>
+<div class="tab-panel" id="panel-model3d" hidden>
+<h2 class="panel-heading">Interactive 3D Model</h2>
+<div class="model-viewer-wrapper"><model-viewer id="model3dFrame" src="" alt="3D model" auto-rotate camera-controls></model-viewer></div>
+</div>
+<div class="tab-panel" id="panel-info" hidden>
+<h2 class="panel-heading">Technical Specifications &amp; Mission Details</h2>
+<div class="info-text-container" id="infoTextContainer"></div>
+<div class="docs-download-area" id="docsContainer"></div>
+</div>
+</div>
+</section>
+</main>
+<script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer/dist/model-viewer.min.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
-        

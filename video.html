@@ -1,18 +1,19 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial=1.0"/>
-    <title>Stellar Remains - Video Player</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Stellar Remains Museum - Video Player</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Montserrat:wght@300;400;500;600;700;800&family=Orbitron:wght@600;700&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="style.css"/>
-    </head>
-    <body class="video-page-body">
-        <a href="artifact.html" class="video-close-btn" aria-label="Close Vidoe">&times;</a>
-
-        <div class="video-fullscreen-container">
-            <video controls autoplay class="fullscreen-video" id="artifactVideoPlayer">
-                <source src="" type="video/mp4"/>
-                Your browser does not support the video tag
-            </video>
-        </div>
+</head>
+<body class="video-page-body">
+    <a href="artifact.html" class="video-close-btn" id="videoCloseBtn" aria-label="Close video">&times;</a>
+    <div class="video-fullscreen-container">
+        <video controls autoplay class="fullscreen-video" id="artifactVideoPlayer"><source src="" type="video/mp4"/>Your browser does not support the video tag.</video>
+    </div>
+<script src="script.js"></script>
 </body>
 </html>

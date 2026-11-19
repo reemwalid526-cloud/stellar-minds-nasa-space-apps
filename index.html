@@ -1,72 +1,41 @@
 <!DOCTYPE html>
-<html lan="en">
+<html lang="en">
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Stellar Remains Museum - The NASA's Retired Space</title>
+    <title>Stellar Remains Museum - NASA's Retired Space Tools</title>
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-    <link href="https://font.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Orbitron:wght@600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Cinzel:wght@400;600&family=Montserrat:wght@300;400;500;600;700;800&family=Orbitron:wght@600;700&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
     <main class="hero-stage">
         <img src="background.png" alt="Stellar Remains Museum" class="bg-image" id="bgImage"/>
         <div class="bg-vignette"></div>
-
         <header class="navbar">
             <a href="index.html" class="brand">
-                <div class="brand-badge">
-                    <img src="badge.jpg" alt="Team Emblem" onerror="this.style.display='none'"/>
-                </div>
+                <div class="brand-badge"><img src="badge.jpg" alt="Team Emblem" onerror="this.style.display='none'"/></div>
                 <span class="brand-divider"></span>
-                <div class="brand-text">
-                    <span class=brand-title>Stellar Remains</span>
-                    <span class="brand-subtitle">Museum</span>
-                </div>
+                <div class="brand-text"><span class="brand-title">Stellar Remains</span><span class="brand-subtitle">Museum</span></div>
             </a>
-
-            <form class="search-form" id="searchForm">
-                <label for="searchInput">Search:</label>
-                <input type="text" id="searchInput" autocomplete="off"/>
-            </form>
-
-            <nav class="nav-links">
-                <a href="index.html" class="nav-link active">Home</a>
-                <a href="about.html" class="nav-link"> About</a>
-                <a href="journey.html" class="nav-link"> Explore</a>
-                <a href="team.html" class="nav-link"> Team</a>
-            </nav>
+        <form class="search-form" id="searchForm"><label for="searchInput">search:</label><input type="text" id="searchInput" autocomplete="off"/></form>
+        <nav class="nav-links">
+            <a href="index.html" class="nav-link active">Home</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="journey.html" class="nav-link">Explore</a>
+            <a href="team.html" class="nav-link">Team</a>
+        </nav>
         </header>
-
-        <div class="dome-arch-wrapper" aria-hidden ="true">
-            <svg viewBox="0 0 700 150" class="dome-arch-svg">
-                <defs>
-                    <text class="dome-arch-text">
-                        <textPath href="#domeCurve" startOffset="50%" text-anchor="middle">
-                            STELLAR REMAINS MUSEUM
-                        </textPath>
-                    </text>
-                </defs>
-            </svg>
-        </div>
-
         <section class="hero-content">
-            <p class="eyebrow">RETIRED . REMIMAGINED . REMEMBERD</p>
+            <p class="eyebrow">RETIRED . REIMAGINED . REMEMBERED</p>
             <h1 class="main-headline">NASA'S RETIRED</h1>
-            <h2 class="sun-headline"> Space tools</h2>
+            <h2 class="sun-headline">Space tools</h2>
             <p class="hero-description">Explore the tools that once helped <br/> NASA reach beyond Earth</p>
-            <a href="journey.html" class="explore-btn" id="exploreBtn">
-                <span >"EXPLORE NOW"></span>
-                <span class="arrow">%rarr;</span>
-            </a>
+            <a href="journey.html" class="explore-btn" id="exploreBtn"><span>EXPLORE NOW</span><span class="arrow">&rarr;</span></a>
         </section>
-
-        <a href="journey.html" class="portal-click-btn" id="portalBtn" aria-label="Enter Museum">
-        <span>Click</span>
-    </a>
-    </main>
-
+        <a href="journey.html" class="portal-click-btn" id="portalBtn" aria-label="Enter Museum"><span>Click</span></a>
+        </main>
     <script src="script.js"></script>
 </body>
 </html>
