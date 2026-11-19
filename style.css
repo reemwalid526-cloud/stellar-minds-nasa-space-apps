@@ -1,340 +1,923 @@
-/* ==========================================
-   Stellar Remains Museum — Complete CSS
-   ========================================== */
-
-/* 1. إعدادات عامة (Global Reset) */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+/* Stellar Remains Museum - style.css */
+*{box-sizing:border-box;
+  margin:0;
+  padding:0
+}
+html,body{
+  min-height:100%
+}
+body{background:#05050a;
+  color:#fff;
+  font-family:'Montserrat','Segoe UI',sans-serif;overflow-x:hidden
+}
+a{
+  color:inherit
+}
+[hidden]{
+  display:none!important
+}
+:root{--serif:'Cormorant Garamond','Cinzel',serif;
+  --blue:#2b3fb5
 }
 
-body {
-  background-color: #05050a;
-  color: #ffffff;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  overflow-x: hidden;
-  min-height: 100vh;
+
+.hero-stage,.journey-stage,.about-stage,.mars-stage{position:relative;
+  width:100%;
+  height:100vh;
+  min-height:540px;
+  overflow:hidden
 }
 
-/* 2. الصفحة الرئيسية (Index / Door Page) */
-.door-container {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+.artifact-stage{position:relative;
+  width:100%;
+  min-height:100vh;
+  overflow:hidden}
+.bg-image{position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:0
 }
 
-/* تنسيق أزرار الـ CLICK الدائرية على الباب */
-.door-btn, .click-btn {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 50; /* ضمان ظهور الزرار فوق أي خلفية */
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  background: rgba(0, 210, 255, 0.2);
-  border: 2px solid #00d2ff;
-  color: #ffffff;
-  font-weight: bold;
-  font-size: 0.8rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-  cursor: pointer;
-  backdrop-filter: blur(6px);
-  box-shadow: 0 0 15px rgba(0, 210, 255, 0.5);
-  transition: all 0.3s ease;
+.bg-overlay,.bg-overlay-deep,.bg-vignette{position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none
 }
 
-.click-btn-top {
-  bottom: 24%;
+.bg-overlay{
+  background:rgba(0,0,0,.05)
 }
 
-.click-btn-bottom {
-  bottom: 12%;
+.bg-overlay-deep{
+  background:rgba(0,0,0,.65)
 }
 
-.door-btn:hover, .click-btn:hover {
-  background: #00d2ff;
-  color: #05050a;
-  box-shadow: 0 0 30px #00d2ff, 0 0 50px rgba(0, 210, 255, 0.8);
-  transform: translateX(-50%) scale(1.1);
+
+.navbar,.mars-header{
+  position:relative;
+  z-index:10;
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:20px;
+  padding:1.2vw 2.5vw
 }
 
-/* 3. قاعات المتحف (Museum Hall) */
-.hall-container {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.navbar.nav-only{
+  justify-content:flex-end
 }
 
-/* الزراير الدائرية الصغيرة على المعروضات */
-.circle-arrow-btn {
-  position: absolute;
-  z-index: 30;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.15);
-  border: 2px solid #ffffff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  text-decoration: none;
-  backdrop-filter: blur(4px);
-  cursor: pointer;
-  transition: all 0.3s ease;
+
+.brand,.header-left{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  text-decoration:none
 }
 
-.circle-arrow-btn:hover {
-  background: #ffffff;
-  color: #05050a;
-  box-shadow: 0 0 15px #fff;
-  transform: scale(1.15);
+.brand-badge img{width:clamp(52px,6vw,96px);
+  height:clamp(52px,6vw,96px);
+  border-radius:50%;
+  object-fit:cover;
+  display:block
 }
 
-/* اللوحة السفلية المنبثقة (Detailed Plaque) في المتحف */
-.detailed-plaque {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 85%;
-  max-width: 900px;
-  background: rgba(10, 10, 25, 0.9);
-  border: 1px solid rgba(0, 210, 255, 0.4);
-  border-radius: 12px;
-  padding: 20px;
-  z-index: 100;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+.brand-divider,.header-divider{
+  width:1px;
+  align-self:stretch;
+  min-height:56px;
+  background:rgba(255,255,255,.55)
 }
 
-.detailed-plaque[hidden] {
-  display: none !important;
+.brand-text{
+  display:flex;
+  flex-direction:column;
+  line-height:1.15
 }
 
-.plaque-content {
-  display: flex;
-  align-items: center;
-  gap: 20px;
+.brand-title{
+  font-size:clamp(1.2rem,2.2vw,2.1rem);
+  font-weight:500
 }
 
-.plaque-img {
-  width: 120px;
-  height: 90px;
-  object-fit: cover;
-  border-radius: 6px;
-  border: 1px solid rgba(255,255,255,0.2);
+
+.brand-subtitle{
+  font-size:clamp(.9rem,1.3vw,1.3rem);
+  padding-left:.2em
 }
 
-.plaque-info h3 {
-  font-size: 1.3rem;
-  color: #00d2ff;
-  margin-bottom: 5px;
+.nav-links{
+  display:flex;
+  gap:clamp(18px,3.2vw,56px);
+  margin-top:.6vw
 }
 
-.plaque-info p {
-  color: #a4b0be;
-  font-size: 0.95rem;
-  margin-bottom: 12px;
+.nav-link{
+  text-decoration:none;
+  color:#fff;
+  font-size:clamp(.85rem,1.2vw,1.2rem);
+  padding:2px 4px 6px;
+  border-bottom:3px solid transparent;
+  text-shadow:0 1px 6px #000
 }
 
-/* أزرار الانتقال داخل اللوحة السفلية */
-.plaque-buttons {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
+.nav-link.active{
+  border-bottom-color:var(--blue)
+
 }
 
-.plaque-btn {
-  background: rgba(0, 210, 255, 0.1);
-  border: 1px solid #00d2ff;
-  color: #fff;
-  padding: 6px 14px;
-  border-radius: 4px;
-  text-decoration: none;
-  font-size: 0.85rem;
-  transition: all 0.3s ease;
+.nav-link:hover{
+  border-bottom-color:#fff
+
 }
 
-.plaque-btn:hover {
-  background: #00d2ff;
-  color: #05050a;
+
+.search-form{flex:1;
+  max-width:36vw;
+  display:flex;
+  align-items:center;
+  gap:8px;font-size:.95rem;
+  margin-top:.6vw
 }
 
-.close-plaque {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 1.5rem;
-  cursor: pointer;
+.search-form input{flex:1;
+  background:none;
+  border:none;
+  border-bottom:1px solid rgba(255,255,255,.7);
+  color:#fff;
+  padding:2px 4px;
+  outline:none
 }
 
-/* 4. صفحة تفاصيل الآلة (Artifact.html) */
-.artifact-page-container {
-  max-width: 1100px;
-  margin: 40px auto;
-  padding: 20px;
+
+.museum-heading .main-title{font-family:var(--serif);
+  font-weight:500;
+  font-size:clamp(1.3rem,2.9vw,2.9rem);
+  letter-spacing:.02em;
+  line-height:1.05
 }
 
-.artifact-header {
-  text-align: center;
-  margin-bottom: 30px;
+.museum-heading .sub-title{font-weight:500;
+  font-size:clamp(1rem,1.9vw,1.9rem);
+  letter-spacing:.03em;
+  margin-top:.3em
 }
 
-.artifact-header h1 {
-  font-size: 2rem;
-  color: #00d2ff;
-  margin-bottom: 5px;
+.title-underline{width:100%;
+  height:1px;
+  background:rgba(255,255,255,.8);
+  margin:.6em 0
 }
 
-.artifact-header span {
-  color: #a4b0be;
-  font-size: 0.9rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
+.tagline{
+  font-size:clamp(.85rem,1.4vw,1.4rem)
 }
 
-/* شريط التبويبات (Tabs Navigation) */
-.tabs-navigation {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-bottom: 25px;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-  padding-bottom: 15px;
+
+.theme-mars .museum-heading{
+  transform:rotate(2.2deg);
+  transform-origin:left top
 }
 
-.tab-btn {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: #a4b0be;
-  padding: 10px 20px;
-  border-radius: 6px;
-  font-size: 0.95rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
+.mars-header .nav-links{
+  margin-top:.6vw
 }
 
-.tab-btn.active, .tab-btn:hover {
-  background: #00d2ff;
-  border-color: #00d2ff;
-  color: #05050a;
-  font-weight: bold;
-  box-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
+
+
+.hero-content{
+  position:absolute;
+  z-index:10;
+  left:8.5%;
+  top:40%
 }
 
-/* محتوى التبويبات (Tab Panels) */
-.tab-panel {
-  background: rgba(15, 15, 30, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-  padding: 25px;
-  backdrop-filter: blur(8px);
-  margin-bottom: 20px;
+.eyebrow{font-size:clamp(.7rem,1.25vw,1.2rem);
+  letter-spacing:.02em
 }
 
-.tab-panel[hidden] {
-  display: none !important;
+.main-headline{font-weight:300;
+  font-size:clamp(2.2rem,6.4vw,6.2rem);
+  line-height:1;
+  white-space:nowrap
 }
 
-.panel-heading {
-  font-size: 1.4rem;
-  color: #fff;
-  margin-bottom: 15px;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-  padding-bottom: 8px;
+.sun-headline{font-weight:800;
+  color:#2540c8;
+  font-size:clamp(2rem,5.6vw,5.4rem);
+  line-height:1;
+  margin-bottom:.35em
 }
 
-/* مشغل الفيديو والـ 3D */
-.video-player, model-viewer {
-  width: 100%;
-  max-height: 500px;
-  border-radius: 8px;
-  background: #000;
-  outline: none;
+
+.hero-description{font-size:clamp(.85rem,1.5vw,1.5rem);
+  line-height:1.4;
+  padding-left:1.2vw;
+  margin-bottom:1.4vw
 }
 
-/* بطاقات فيديوهات الأرشيف */
-.videos-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 15px;
+
+.explore-btn{display:inline-flex;
+  align-items:center;
+  gap:14px;
+  padding:.9vw 1.6vw;
+  border-radius:40px;
+  background:rgba(5,5,20,.75);
+  border:2px solid #2b3fb5;
+  color:#fff;
+  text-decoration:none;
+  font-size:clamp(.8rem,1.4vw,1.4rem);
+  box-shadow:0 0 14px rgba(43,63,181,.7);
+  transition:.3s
 }
 
-.video-card-item {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 15px;
-  border-radius: 6px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+.explore-btn:hover{
+  background:#2b3fb5
 }
 
-.video-card-item h3 {
-  font-size: 1rem;
-  color: #fff;
-  margin-bottom: 10px;
+
+.portal-click-btn{
+  position:absolute;
+  z-index:20;
+  left:47.5%;
+  top:64%;
+  width:clamp(44px,5vw,64px);
+  height:clamp(44px,5vw,64px);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(5,5,25,.7);
+  border:2px solid rgba(255,255,255,.7);
+  font-size:.7rem;
+  font-weight:700;
+  text-decoration:none;
+  box-shadow:0 0 14px rgba(120,140,255,.7)
 }
 
-.watch-link {
-  color: #00d2ff;
-  text-decoration: none;
-  font-size: 0.9rem;
-  font-weight: bold;
-  transition: color 0.2s ease;
+
+
+.upper-banner{
+  position:absolute;
+  z-index:10;
+  top:15%;
+  left:50%;
+  transform:translateX(-50%) rotate(-2deg);
+  text-align:center;
+  width:40%
 }
 
-.watch-link:hover {
-  color: #fff;
-  text-decoration: underline;
+.banner-title{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:clamp(1.1rem,2.4vw,2.4rem);
+  letter-spacing:.03em
 }
 
-/* قسم المعلومات (Information Text) */
-.info-text-container p {
-  margin-bottom: 12px;
-  line-height: 1.6;
-  color: #dcdde1;
+.banner-subtitle{color:#7f8cf0;
+  font-size:clamp(.8rem,1.3vw,1.3rem)
 }
 
-.info-text-container h3 {
-  color: #00d2ff;
-  margin-top: 15px;
-  margin-bottom: 8px;
+.door-label{position:absolute;
+  z-index:20;
+  top:44%;
+  transform:translateX(-50%);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:3px;
+  font-size:clamp(.65rem,1.1vw,1.1rem);
+  text-shadow:0 1px 6px #000
 }
 
-/* زر العودة للمتحف */
-.back-hall-btn {
-  display: inline-block;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  color: #fff;
-  padding: 8px 18px;
-  border-radius: 6px;
-  cursor: pointer;
-  text-decoration: none;
-  font-size: 0.9rem;
-  margin-top: 15px;
-  transition: all 0.3s ease;
+.door-moon{
+  left:27.5%
+}
+.door-mars{
+  left:49.5%
+}
+.door-space{
+  left:70.5%
 }
 
-.back-hall-btn:hover {
-  background: #fff;
-  color: #05050a;
+.planet-name{
+  border-bottom:1px solid rgba(255,255,255,.8);
+  padding:0 10px 3px;
+  letter-spacing:.04em
+}
+
+.door-click-btn{
+  text-decoration:none;
+  font-size:.85em
+}
+
+.door-click-btn:hover{
+  color:#8fa0ff
+}
+
+
+.about-container{
+  position:absolute;
+  z-index:10;
+  inset:0
+}
+
+.about-left{position:absolute;
+  left:5.5%;
+  top:50%;
+  transform:translateY(-50%)
+}
+
+.about-huge-title{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:clamp(3rem,9.5vw,9.5rem);
+  line-height:1
+}
+
+.about-right-box{
+  position:absolute;
+  left:37%;
+  right:2%;
+  top:14%;
+  bottom:4%;
+  background:rgba(20,35,110,.55);
+  padding:2.5vw 3vw;
+  overflow-y:auto;
+  display:flex;
+  align-items:center
+}
+
+.about-paragraph{
+  text-align:center;
+  line-height:1.55;
+  font-size:clamp(.8rem,1.5vw,1.55rem)
+}
+
+
+
+.plaque{
+  position:absolute;
+  z-index:20;
+  transform:translate(-50%,-50%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:1.2vw;
+  padding:.6vw 1.4vw;
+  background:rgba(40,22,12,.6);
+  min-width:17vw
+}
+
+
+.plaque-text{
+  display:flex;
+  flex-direction:column;
+  line-height:1.05;
+  text-align:left
+}
+
+.rover-name{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:clamp(1rem,2.1vw,2.1rem)
+}
+
+.rover-type{
+  font-family:var(--serif);
+  font-size:clamp(.85rem,1.5vw,1.5rem)
+}
+
+.circle-arrow-btn{
+  flex:0 0 auto;
+  width:clamp(32px,3.4vw,66px);
+  height:clamp(32px,3.4vw,66px);
+  border-radius:50%;
+  border:2px solid #fff;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:#fff;
+  text-decoration:none;
+  font-size:clamp(.9rem,1.8vw,1.8rem);
+  transition:.25s
+}
+
+
+.circle-arrow-btn:hover{
+  background:#fff;
+  color:#05050a;
+  transform:scale(1.1)
+}
+
+.theme-space .plaque{
+  background:rgba(14,14,26,.88)
+}
+
+.theme-moon .plaque{
+  background:rgba(40,45,120,.6)
+}
+
+.theme-moon .rover-name{
+  font-size:clamp(.8rem,1.5vw,1.5rem);
+  text-align:center
+}
+
+.pg-space2 .plaque{
+  background:rgba(30,35,100,.6)
+}
+
+
+.pg-mars1 .plaque-1{
+  left:23%;
+  top:73%
+}
+.pg-mars1 .plaque-2{
+  left:52.5%;
+  top:73.5%
+}
+.pg-mars1 .plaque-3{
+  left:76%;
+  top:73.5%
+}
+
+.pg-mars2 .plaque-1{
+  left:23%;
+  top:77%;
+  min-width:0
+}
+
+.pg-mars2 .plaque-2{
+  left:47%;
+  top:76%;
+  min-width:0
+}
+
+.pg-mars2 .plaque-3{
+  left:65.5%;
+  top:75.5%;
+  min-width:0
+}
+.pg-mars2 .plaque-4{
+  left:80%;
+  top:75%;
+  min-width:0
+}
+
+
+.pg-space1 .plaque-1{
+  left:26%;
+  top:75%
+}
+
+.pg-space1 .plaque-2{
+  left:50%;
+  top:74.5%
+}
+.pg-space1 .plaque-3{
+  left:71%;
+  top:74%
+}
+.pg-space2 .plaque-1{
+  left:23.5%;
+  top:74%
+}
+.pg-space2 .plaque-2{
+  left:49%;
+  top:73.5%
+}
+.pg-space2 .plaque-3{
+  left:69%;
+  top:74%
+}
+
+.pg-moon1 .plaque-1,.pg-moon2 .plaque-1{
+  left:22%;
+  top:77%
+}
+.pg-moon1 .plaque-2,.pg-moon2 .plaque-2{
+  left:51%;
+  top:77%
+}
+
+.pg-moon1 .plaque-3,.pg-moon2 .plaque-3{
+  left:80%;
+  top:77%
+}
+
+
+.pg-moon1 .plaque,.pg-moon2 .plaque{
+  min-width:0;
+  width:27vw
+}
+
+.side-next-btn,.side-prev-btn{
+  position:absolute;
+  z-index:20;
+  top:51%;
+  transform:translateY(-50%);
+  width:clamp(40px,5.4vw,100px);
+  height:clamp(40px,5.4vw,100px);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:3px solid #fff;
+  color:#fff;
+  text-decoration:none;
+  font-size:clamp(1.2rem,3vw,3rem);
+  transition:.25s
+}
+
+.side-next-btn{
+  right:2.5%
+}.side-prev-btn{
+  left:2.5%
+}
+.side-next-btn:hover,.side-prev-btn:hover{
+  background:rgba(255,255,255,.9);
+  color:#05050a
+}
+
+
+.theme-mars{--pop:#7a3a14;
+  --cell:rgba(190,140,115,.55)
+}
+
+.theme-space{--pop:#3b34a0;
+  --cell:rgba(130,120,215,.6)
+}
+
+.theme-moon{--pop:#37439a;
+  --cell:rgba(120,135,215,.55)
+}
+
+.detailed-plaque-overlay{
+  position:absolute;
+  z-index:40;
+  left:14%;
+  right:2.5%;
+  bottom:4%;
+  pointer-events:none
+}
+
+
+.detailed-plaque-content{
+  position:relative;
+  pointer-events:auto;
+  display:flex;
+  gap:.6vw;
+  background:var(--pop);
+  padding:.6vw;
+  box-shadow:0 8px 30px rgba(0,0,0,.6)
+}
+
+
+.close-plaque{
+  position:absolute;
+  top:-16px;
+  right:-10px;
+  width:32px;
+  height:32px;
+  border-radius:50%;
+  background:#000;
+  border:1px solid #fff;
+  color:#fff;
+  font-size:1.3rem;
+  cursor:pointer;
+  line-height:1
+}
+
+
+.detailed-item{
+  flex:1;
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:.4vw;
+  padding:.8vw;
+  background:var(--cell);
+  text-decoration:none;
+  font-family:var(--serif);
+  min-height:11vw
+}
+
+
+.detailed-item.active{
+  flex:1.6;
+  flex-direction:row;
+  gap:.8vw;
+  justify-content:flex-start;
+  background:none;
+  padding:.3vw
+}
+
+
+.small-rover-img{
+  width:38%;
+  aspect-ratio:1/1;
+  object-fit:cover
+}
+
+
+.detailed-text{
+  display:flex;
+  flex-direction:column
+}
+
+
+.rover-name-detailed{
+  font-size:clamp(.9rem,2.1vw,2.2rem);
+  line-height:1.05
+}
+
+.rover-type-detailed{
+  font-size:clamp(.7rem,1.1vw,1.1rem);
+  opacity:.8
+}
+
+.item-title{font-size:clamp(1rem,2.3vw,2.4rem)}
+
+.circle-arrow-small{width:clamp(30px,3.6vw,60px);
+  height:clamp(30px,3.6vw,60px);
+  border-radius:50%;
+  border:2px solid #fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:clamp(.9rem,1.6vw,1.6rem)
+}
+
+.detailed-btn:hover{
+  background:rgba(255,255,255,.35)
+}
+
+
+.artifact-container{
+  position:relative;
+  z-index:10;
+  max-width:1100px;
+  margin:0 auto;
+  padding:20px
+}
+
+.artifact-top-bar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  flex-wrap:wrap;
+  margin-bottom:20px
+}
+
+
+.artifact-category{
+  font-size:.8rem;
+  letter-spacing:3px;
+  color:#00d2ff
+}
+
+.artifact-main-title{
+  font-family:'Cinzel',serif;
+  font-size:clamp(1.5rem,4vw,2.4rem)
+}
+
+
+.back-hall-btn{
+  background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.3);
+  color:#fff;
+  padding:8px 18px;
+  border-radius:6px;
+  cursor:pointer;
+  transition:.3s
+}
+
+.back-hall-btn:hover{
+  background:#fff;
+  color:#05050a
+}
+
+.artifact-tabs{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-bottom:20px;
+  border-bottom:1px solid rgba(255,255,255,.15);
+  padding-bottom:14px
+}
+
+.tab-btn{background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.2);
+  color:#a4b0be;
+  padding:10px 20px;
+  border-radius:6px;
+  cursor:pointer;
+  transition:.3s;
+  font-family:inherit
+}
+
+.tab-btn.active,.tab-btn:hover{
+  background:#00d2ff;
+  border-color:#00d2ff;
+  color:#05050a;
+  font-weight:700
+}
+
+.tab-panel{
+  background:rgba(15,15,30,.65);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:10px;
+  padding:25px;
+  backdrop-filter:blur(8px)
+}
+
+.panel-heading{
+  font-size:1.3rem;
+  margin-bottom:15px;
+  padding-bottom:8px;
+  border-bottom:1px solid rgba(255,255,255,.15)
+}
+
+.story-layout{
+  display:grid;
+  grid-template-columns:1fr 1.4fr;
+  gap:24px
+}
+
+.artifact-showcase-img{
+  width:100%;
+  border-radius:10px;
+  object-fit:cover
+}
+
+.media-frame,.model-viewer-wrapper model-viewer{
+  width:100%;
+  border-radius:8px;
+  background:#000
+}
+
+.media-frame{
+  max-height:500px
+}
+
+model-viewer{
+  height:500px
+}
+
+.videos-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  gap:15px
+}
+
+.video-card-item{
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.12);
+  padding:15px;
+  border-radius:8px;
+  display:flex;
+  flex-direction:column;
+  gap:10px
+}
+
+.watch-link{
+  color:#00d2ff;
+  text-decoration:none;
+  font-weight:700
+}
+
+.watch-link:hover{
+  color:#fff;
+  text-decoration:underline
+}
+
+.info-text-container h3{
+  color:#00d2ff;
+  margin:10px 0 8px
+}
+
+.info-text-container p{
+  line-height:1.7;
+  margin-bottom:14px;
+  color:#dcdde1
+}
+
+
+.video-page-body{
+  background:#000
+}
+
+.video-fullscreen-container{
+  width:100vw;
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center
+}
+
+.fullscreen-video{
+  width:100%;
+  height:100%;
+  object-fit:contain
+}
+
+.video-close-btn{
+  position:fixed;
+  top:16px;
+  right:22px;
+  z-index:50;
+  font-size:2.4rem;
+  text-decoration:none;
+  color:#fff
+}
+
+.info-panel{
+  position:absolute;
+  z-index:10;
+  width:26%;
+  padding:1.2vw;
+  text-align:center;
+  background:rgba(120,90,200,.28);
+  border:1px solid rgba(255,255,255,.3);
+  backdrop-filter:blur(3px)
+}
+
+.member-name{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:clamp(1.6rem,4.4vw,4.4rem);
+  line-height:1
+}
+
+.member-role{
+  font-size:clamp(.75rem,1.9vw,1.9rem);
+  line-height:1.3
+}
+
+.panel-noura{
+  left:4.3%;
+  top:17%
+}.panel-menna{
+  left:37%;
+  top:4.6%
+}.panel-shrouq{
+  left:69.3%;
+  top:29%
+}.panel-reem{
+  left:4.2%;
+  top:66%
+}.panel-lujain{
+  left:70%;
+  top:65%
+}
+.team-body .navbar{
+  z-index:11
+}
+
+
+@media(max-width:760px){
+  .hero-stage,.journey-stage,.about-stage,.mars-stage{
+    min-height:620px
+  }
+
+  .nav-links{
+    gap:12px
+  }
+
+  .story-layout{
+    grid-template-columns:1fr
+  }
+
+  .detailed-plaque-overlay{
+    left:2%;
+    right:2%
+  }
+  
+  .detailed-plaque-content{
+    flex-wrap:wrap
+  }
+
+  .detailed-item{
+    flex:1 1 40%;
+    min-height:90px
+  }
+
+  .about-right-box{
+    left:4%;
+    top:30%
+  }
+
+  .about-left{
+    top:18%
+  }
+
+  .info-panel{
+    width:44%
+  }
 }
